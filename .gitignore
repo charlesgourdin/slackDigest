@@ -3,3 +3,4 @@ package-lock.json
 *.log
 dist
 .env
+.idea
