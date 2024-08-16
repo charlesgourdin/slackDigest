@@ -6,7 +6,6 @@ const router = express.Router();
 
 const resumeController = new ResumeController();
 
-router.post("/hello", resumeController.sayHello);
 router.post("/", resumeController.resume);
 
 export default router;

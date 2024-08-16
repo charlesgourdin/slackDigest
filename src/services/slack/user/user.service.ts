@@ -1,12 +1,13 @@
 import slackService from "../slack.service";
 
-export async function getUserInfo(userId: string): Promise<{ name: string, email: string } | undefined> {
+export async function getUserInfo(userId: string): Promise<{ name: string, email: string, title: string } | undefined> {
     try {
         const userInfo = await slackService.users.info({ user: userId });
         if (userInfo.user && userInfo.user.profile) {
             const name = userInfo.user.profile.real_name ?? '';
             const email = userInfo.user.profile.email ?? '';
-            return { name, email };
+            const title = userInfo.user.profile.title ?? '';
+            return { name, email, title };
         }
     } catch (error) {
         console.error(`Error fetching user info for ID ${userId}:`, error);
