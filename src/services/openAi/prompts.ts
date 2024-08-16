@@ -46,7 +46,7 @@ export function resumeWithTitlePrompt(title: string, messages: {}) {
             
             ${JSON.stringify(messages, null, 2)}
             
-            Génère un résumé pour ${title} en tenant compte des priorités liées à son rôle.
+            Génère un résumé assez conscis pour ${title} en tenant compte des priorités liées à son rôle.
 
         `,
     }
