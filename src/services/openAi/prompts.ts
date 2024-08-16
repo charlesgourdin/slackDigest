@@ -1,6 +1,6 @@
 export function resumeWithTitlePrompt(title: string, messages: {}) {
     return {
-        model: "gpt-3.5-turbo",
+        model: "gpt-4o-mini",
         systemPrompt:
         `
             Tu es un assistant qui résume les messages Slack non lus. Les données sont fournies sous forme de JSON avec la structure suivante :
@@ -28,12 +28,13 @@ export function resumeWithTitlePrompt(title: string, messages: {}) {
               ]
             }
     
+            Les résumés sont retournés à slack, tu dois donc faire attention à la syntaxe et à la mise en forme.
             Les résumés doivent être personnalisés et les informations priorisées en fonction du rôle de l'utilisateur et dans la langue spécifiée.
             Ta réponse doit être sous la forme d'un texte qui synthétise les messages non lus de Slack pour un utilisateur donné.
             L'heure des messages n'est pas important pour le résumé. Il t'est simplement donné pour que tu puisses comprendre l'ordre des messages.
             Tu n'as pas besoin de phrase d'introduction ou de conclusion. Tu peux simplement commencer par le résumé.
             Dans l'idéal, le résumé doit permettre de comprendre de quel channel proviennent les messages et de quoi ils parlent.
-            Lorsque tu cites un channel, tu dois le mettre en gras en l'entourant d'un symbole * avant et après le nom du channel (exemple : *général*).
+            Lorsque tu cites un channel, tu dois le mettre en gras (exemple : "générale" devient "*générale*").
         `
         ,
         userPrompt:

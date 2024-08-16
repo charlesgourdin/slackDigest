@@ -28,7 +28,6 @@ export class ResumeController {
                 text: resume
             });
         } catch (error) {
-            // Si une erreur se produit après l'envoi de la réponse initiale, envoyez un message d'erreur via response_url
             await axios.post(response_url, {
                 response_type: 'in_channel',
                 text: `Désolé, une erreur est survenue lors de la génération du résumé.`
